@@ -75,36 +75,37 @@ We provide three evaluation metrics, MAE, MSE, and MAPE,
 which are evaluated on multi-step predictions, 
 and the evaluations of our model and the baseline model are saved in 
 [Baselinemodel/each_step_metrics_pems04](Baselinemodel/each_step_metrics_pems04) and [Baselinemodel/each_step_metrics_pems08](Baselinemodel/each_step_metrics_pems08).
-**ap_eval.csv**
 
-TP | FP | Confi | iou
-----|----|----|----
-0 |	1| 0.3176| 0.2955
-0 |	1| 0.4064| 0.3597
-1 |	0| 0.4765| 0.8158
+Some visualization results as follow:
 
-**output_yolo3coco.csv**
 
-TP | FP | Confi | iou|acc_tp | acc_fp |precision |recall
-----|----|----|----|----|----|----|----
-0 |	1| 0.9865| 0.6260| 0| 1| 0| 0
-0 |	1| 0.9854| 0.7169| 0| 2| 0| 0
-0 |	1| 0.9854| 0.5567| 0| 3| 0| 0
-1 |	0| 0.9846| 0.7818| 1| 3| 0.25| 0.001031
+**Data anlysis**
+
+![image](pc/data anlysis.png)
+
+
+**comparsion on different methods**
+
+![image](pc/comparsion.png)
+
+**visual flow**
+
+![image](pc/results.png)
+
+
+**random mask**
+
+![image](pc/radom mask.png)
+
+
 ## Contributing
 
-Most of the code comes from [qqwweee/keras-yolo3](https://github.com/qqwweee/keras-yolo3)
+Most of the code comes from [Kyubyong/transformer](https://github.com/Kyubyong/transformer))
 
-The image annotation tool we use is [labelImg](https://github.com/tzutalin/labelImg)
+The inspiration of this article comes from these [paper]([https://arxiv.org/abs/1707.06484](https://arxiv.org/abs/1907.00235)) and [paper](https://arxiv.org/abs/1803.02155)
 
-The inspiration of this article comes from this [paper](https://arxiv.org/abs/1707.06484)
-
-At the same time, we are also very grateful to [Lin et al](https://arxiv.org/abs/2005.04490). For collecting pedestrian data of complex events
 
 At last, thank you very much for the contribution of the co-author in the article, and also thank my girlfriend for giving me the courage to pursue for a Ph.d.
-
-
-![image](picture/FIG3.png)
 
 ## License
 
