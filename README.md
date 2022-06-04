@@ -103,7 +103,7 @@ Some visualization results as follow:
 
 Most of the code comes from [Kyubyong/transformer](https://github.com/Kyubyong/transformer))
 
-The inspiration of this article comes from these [paper]([https://arxiv.org/abs/1707.06484](https://arxiv.org/abs/1907.00235)) and [paper](https://arxiv.org/abs/1803.02155)
+The inspiration of this article comes from these [paper](https://arxiv.org/abs/1907.00235) and [paper](https://arxiv.org/abs/1803.02155)
 
 
 At last, thank you very much for the contribution of the co-author in the article, and also thank my girlfriend for giving me the courage to pursue for a Ph.d.
