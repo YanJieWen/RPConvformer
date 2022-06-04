@@ -24,6 +24,7 @@ Improved Transformer based on Tensoflow implementation for traffic flow predicti
   RPConvformer has three attention modules, which are divided into input sequence self-attention, output sequence self-attention, and input-output interactive-attention. They all have multiple headers, and the calculation method is scaled dot-product attention (SDPA) In addition, when calculating the attention score, we introduce the relative position bias to consider the relative position information of the internal nodes in the sequence. The calculated attention score matrix is interpretable.
   Extensive experiments on two real-world traffic flow datasets demonstrate the superiority of our model over several state-of-art methods.
 ## Preliminary
+Before entering this project, you may need to configure the environment based on `Tensorflow2.x-gpu`.
 
 ### Dataset
 
@@ -31,10 +32,6 @@ Before training, please run the [data_store.py](data_store.py) to generate PEMS0
 Moreover, if you want to change something, you can change the hyperparameters in [Hyperparameter.py](Hyperparameter.py) (Line 16& Line17), and you also
 can change the [data_store.py](data_store.py)(Line 67& Line 68), the second parameters for different links and the third parameters for different traffic features,
 such as flow, occupy, and speed.
-```
-https://drive.google.com/drive/folders/1HUs8BI9rMqP8PGABVzVsQc4o2Tcf6ki2?usp=sharing
-```
-With tree datasets: `chunk_occlusion_voc`, `HiEve_test`,`VOCdevkit`.Please put them in the root directory of the project
 
 ### Weight
 We have trained a model for PEMS04 and PEMD8, You can download the weight of the traffic flow prediction model from 
@@ -55,23 +52,29 @@ and then copy the  the address to open in Google Chrome.However，sometimes you 
 The backbone RPconvformer
 ![image](pc/strut.png)
 
-The [moudels.py](moudels.py) and [framework.py](framework.py) are the most important componets in this project. Moerover, You can come up with some innovative and great ideas if you like.So you can finally train the network by running the following command:
+The [moudels.py](moudels.py) and [framework.py](framework.py) are the most important componets in this project. Moerover, You can come up with some innovative and great ideas and you can also can change the hyperparmetes in the [Hyperparameter.py](Hyperparameter.py) if you like .So you can finally train the network by running the following command:
 ```
-python [train.py]train.py
+python train.py
 ```
+You will get a new file of your own trained weights saved in `ckpt` folders.Don't worry about getting an error, even if there are weight files in the folder, they will be overwritten during training.
 
-
-If you want to training your own model, you need to change the [train,py](train.py), the line 34,35(classes), line 119(which model to use,we apply two,one is original YOLOv3 and DLA). if you want to use original YOLOv3, you can change the line  as :
-```
-model_body = yolo_body(image_input, num_anchors//3, num_classes,'orginal_yolo')
-```
 
 ## Testing 
 
-After a long and hard training, you will get a good pedestrian detection model, stored in file logs/000/, and you need to copy it to the file [model_data](model_data).
+After a long and hard training, you will get a good traffic flow prediction model,please try to run the [test.py], 
 
-We wrote a test file [test.py](yolo3/test.py), which matches the grount truth through IOU and confidence. It will generate a table file under the project folder.Your weight file (`line 23 `) should correspond to the model structure file (`line 46`). At last, We run the [cal_ap.py](yolo3/cal_ap.py), it will generate a complete AP record excel file and output the value of AP.
+You need to pay attention that the model takes up a lot of video memory, so there is no need to feed too much data at one time, please modify line30 and line31 according to the configuration.
 
+In the end, several `xlsx` files will be generated under the project. You can use a clumsy method to splicing them in `excel` like me, or you can write an automatic splicing program based on `pandas` for splicing.
+
+If you want more information, copy the concatenated table under [Baselinemodel](Baselinemodel) and run the following:
+```
+python visual_transformer.py
+```
+We provide three evaluation metrics, MAE, MSE, and MAPE, 
+which are evaluated on multi-step predictions, 
+and the evaluations of our model and the baseline model are saved in 
+[Baselinemodel/each_step_metrics_pems04](Baselinemodel/each_step_metrics_pems04) and [Baselinemodel/each_step_metrics_pems08](Baselinemodel/each_step_metrics_pems08).
 **ap_eval.csv**
 
 TP | FP | Confi | iou
