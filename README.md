@@ -42,15 +42,23 @@ We have trained a model for PEMS04 and PEMD8, You can download the weight of the
 https://drive.google.com/drive/folders/1-_66IvjOCkkDUquVEqbJ4FaOZPKi1uw6?usp=sharing
 ```
 Three folders: `ckpt_pems04new`(trained for PEMS04),`ckpt_pems08new`(trained for PEMSD8),`logdir`(running record).When you want to test the PEMS04 testing datasets.
-please copy the files in `ckpt_pems04new` to a brand new folder named ``ckpt``
+please copy the files in `ckpt_pems04new` to a brand new folder named `ckpt`, the same operation as the PEMSD8. In addtion, if you want to see the runningr record.
+you can open the terminal and run the following statement:
+```
+cd RPConvformer
+tensorboard --logdir=logdir
+```
+and then copy the  the address to open in Google Chrome.However，sometimes you may be failure to open it, just relax, and close network connection.,replay it.
 
 
 ## Training
-The backbone DLA
-![image](picture/fig7_.png)
+The backbone RPconvformer
+![image](pc/strut.png)
 
-Complete detection framework
-![image](picture/fig8.png)
+The [moudels.py](moudels.py) and [framework.py](framework.py) are the most important componets in this project. Moerover, You can come up with some innovative and great ideas if you like.So you can finally train the network by running the following command:
+```
+python [train.py]train.py
+```
 
 
 If you want to training your own model, you need to change the [train,py](train.py), the line 34,35(classes), line 119(which model to use,we apply two,one is original YOLOv3 and DLA). if you want to use original YOLOv3, you can change the line  as :
