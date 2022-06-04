@@ -37,19 +37,12 @@ https://drive.google.com/drive/folders/1HUs8BI9rMqP8PGABVzVsQc4o2Tcf6ki2?usp=sha
 With tree datasets: `chunk_occlusion_voc`, `HiEve_test`,`VOCdevkit`.Please put them in the root directory of the project
 
 ### Weight
-You can download the weight of the detection model from 
+We have trained a model for PEMS04 and PEMD8, You can download the weight of the traffic flow prediction model from 
 ```
-https://drive.google.com/drive/folders/1gD5vDtGsQxJ4kDYEr3bTVNW9ooLZdL3H?usp=sharing
+https://drive.google.com/drive/folders/1-_66IvjOCkkDUquVEqbJ4FaOZPKi1uw6?usp=sharing
 ```
-Three weight: `dark_weight.h5`(original YOLOv3),`dla_weight.h5`(a novel model),`yolo_cocodataset`(open access). Putting them into the [model_data](model_data).
-## Demo
-
-To start a demo for pedestrian detection!
-Corresponding the weight file in [yolo.py](yolo.py) to the model(line 30&line 80 ) `dla_weight.h5`-`dla_model` & `original_yolo`-`dark_weight.h5`
-```
-pyhon yolo_video.py --image
-```
-![image](picture/3.png)
+Three folders: `ckpt_pems04new`(trained for PEMS04),`ckpt_pems08new`(trained for PEMSD8),`logdir`(running record).When you want to test the PEMS04 testing datasets.
+please copy the files in `ckpt_pems04new` to a brand new folder named ``ckpt``
 
 
 ## Training
