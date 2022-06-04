@@ -23,15 +23,14 @@ Improved Transformer based on Tensoflow implementation for traffic flow predicti
   and information of any length of input sequence can be processed via the key mask (KME), and the decoder autoregressively predicts the future traffic state. 
   RPConvformer has three attention modules, which are divided into input sequence self-attention, output sequence self-attention, and input-output interactive-attention. They all have multiple headers, and the calculation method is scaled dot-product attention (SDPA) In addition, when calculating the attention score, we introduce the relative position bias to consider the relative position information of the internal nodes in the sequence. The calculated attention score matrix is interpretable.
   Extensive experiments on two real-world traffic flow datasets demonstrate the superiority of our model over several state-of-art methods.
-## Install
+## Preliminary
 
-
-```sh
-$ pip install -r requirements.txt
-```
 ### Dataset
 
-Before training, please download train sets and test sets from :
+Before training, please run the [data_store.py](data_store.py) to generate PEMS04 and PEMSD8 data files respectively.pkl.
+Moreover, if you want to change something, you can change the hyperparameters in [Hyperparameter.py](Hyperparameter.py) (Line 16& Line17), and you also
+can change the [data_store.py](data_store.py)(Line 67& Line 68), the second parameters for different links and the third parameters for different traffic features,
+such as flow, occupy, and speed.
 ```
 https://drive.google.com/drive/folders/1HUs8BI9rMqP8PGABVzVsQc4o2Tcf6ki2?usp=sharing
 ```
