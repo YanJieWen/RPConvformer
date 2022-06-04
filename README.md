@@ -82,7 +82,7 @@ Some visualization results as follow:
 
 **Data anlysis**
 
-![image](pc/data anlysis.png)
+![image](pc/data_anlysis.png)
 
 
 **comparsion on different methods**
@@ -96,7 +96,7 @@ Some visualization results as follow:
 
 **random mask**
 
-![image](pc/radom mask.png)
+![image](pc/radom_mask.png)
 
 
 ## Contributing
